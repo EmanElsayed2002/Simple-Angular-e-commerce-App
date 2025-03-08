@@ -5,6 +5,7 @@ import { ApiService } from '../../Service/products/api.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RatingComponent } from '../rating/rating.component';
+import { CartService } from '../../Service/cart/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -16,7 +17,11 @@ import { RatingComponent } from '../rating/rating.component';
 export class ProductDetailsComponent implements OnInit {
   product: IProduct | null = null;
 
-  constructor(private router: ActivatedRoute, private service: ApiService) {}
+  constructor(
+    private router: ActivatedRoute,
+    private service: ApiService,
+    private cartservice: CartService
+  ) {}
 
   ngOnInit(): void {
     this.getProductDetails();
@@ -42,7 +47,9 @@ export class ProductDetailsComponent implements OnInit {
       },
     });
   }
-
+  AddToCart(product: any) {
+    this.cartservice.addToCart(product);
+  }
   toNumber(value: string | null | undefined): number {
     return value ? Number(value) : 0;
   }
