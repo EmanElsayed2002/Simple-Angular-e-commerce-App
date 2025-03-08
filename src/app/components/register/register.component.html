@@ -1,0 +1,92 @@
+<form
+  [formGroup]="userForm"
+  class="p-4 border rounded shadow-sm bg-light mt-5"
+  (ngSubmit)="FormSubmit()"
+>
+  <h2 class="text-center mb-4">Register</h2>
+
+  <!-- Full Name -->
+  <div class="mb-3">
+    <label for="fullName" class="form-label">Full Name</label>
+    <input
+      type="text"
+      id="fullName"
+      class="form-control"
+      placeholder="Enter your full name"
+      formControlName="fullName"
+      name="fullName"
+      required
+    />
+    <div
+      *ngIf="
+        userForm.controls['fullName']?.invalid &&
+        userForm.controls['fullName']?.touched
+      "
+      class="text-danger"
+    >
+      Full name is required.
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="mb-3">
+    <label for="email" class="form-label">Email Address</label>
+    <input
+      type="email"
+      id="email"
+      class="form-control"
+      placeholder="Enter your email"
+      formControlName="email"
+      name="email"
+      required
+      email
+    />
+    <div
+      *ngIf="
+        userForm.controls['email']?.invalid &&
+        userForm.controls['email']?.touched
+      "
+      class="text-danger"
+    >
+      Please enter a valid email.
+    </div>
+  </div>
+
+  <!-- Password -->
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      id="password"
+      class="form-control"
+      placeholder="Enter your password"
+      formControlName="password"
+      name="password"
+      required
+      minlength="6"
+    />
+    <div
+      *ngIf="
+        userForm.controls['password']?.invalid &&
+        userForm.controls['password']?.touched
+      "
+      class="text-danger"
+    >
+      Password must be at least 6 characters long.
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button
+    type="submit"
+    class="btn btn-primary w-100"
+    [disabled]="userForm.invalid"
+    onsubmit="FormSubmit()"
+  >
+    Register
+  </button>
+  <p>
+    Already have account?
+    <a routerLink="/login">Login</a>
+  </p>
+</form>

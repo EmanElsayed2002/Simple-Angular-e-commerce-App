@@ -1,0 +1,22 @@
+<div class="mycard position-relative p-2 card h-100">
+  <div (click)="OnClickOnCard(+product!.id)">
+    <img [src]="product?.images" alt="" class="w-100 h-100" />
+    <span
+      class="stock"
+      [ngClass]="+product!.stock > 0 ? 'bg-success' : 'bg-danger'"
+    >
+      {{ +product!.stock > 0 ? "In Stock" : "Out of Stock" }}
+    </span>
+    <div
+      class="product-content d-flex flex-row flex-wrap justify-content-between"
+    >
+      <h3 class="product-title">{{ product?.title }}</h3>
+      <h5>{{ product?.price }}$</h5>
+    </div>
+    <p class="product-discription">{{ product?.description }}</p>
+    <app-rating [rating]="+product!.rating"></app-rating>
+  </div>
+  <button class="btn btn-success" (click)="addToCart(product!)">
+    Add to Cart
+  </button>
+</div>

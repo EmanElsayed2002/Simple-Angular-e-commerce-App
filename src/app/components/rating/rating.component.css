@@ -1,0 +1,28 @@
+.star {
+  font-size: 24px;
+  margin-right: 4px;
+}
+
+.full {
+  color: gold;
+}
+
+.empty {
+  color: lightgray;
+}
+
+.half {
+  position: relative;
+  display: inline-block;
+}
+
+.half-star {
+  position: absolute;
+  overflow: hidden;
+  width: 50%;
+  color: gold;
+}
+
+.empty-star {
+  color: lightgray;
+}

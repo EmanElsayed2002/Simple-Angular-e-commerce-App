@@ -1,0 +1,44 @@
+<form
+  #FormLogin="ngForm"
+  class="p-4 border rounded shadow-sm bg-light mt-5"
+  (ngSubmit)="onLogin()"
+>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email Address</label>
+    <input
+      required
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      placeholder="Enter your email"
+      [(ngModel)]="email"
+    />
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      required
+      minlength="3"
+      type="password"
+      id="password"
+      class="form-control"
+      placeholder="Enter your password"
+      name="password"
+      [(ngModel)]="password"
+    />
+  </div>
+  <h3></h3>
+  <button
+    type="submit"
+    [disabled]="FormLogin.invalid"
+    class="btn btn-primary w-100"
+  >
+    Login
+  </button>
+  <p>
+    Don't have account?
+    <a routerLink="/register">Register</a>
+  </p>
+</form>

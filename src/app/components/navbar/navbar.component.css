@@ -1,0 +1,14 @@
+.mycard {
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  right: 0px;
+  font-size: 12px;
+  padding: 0px 5px;
+  color: white;
+  background-color: rgb(88, 88, 89);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}

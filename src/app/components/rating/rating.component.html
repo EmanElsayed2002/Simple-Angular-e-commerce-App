@@ -1,0 +1,10 @@
+<div class="star-rating">
+  <ng-container *ngFor="let star of Stars">
+    <i *ngIf="star === 'full'" class="star full">&#9733;</i>
+    <i *ngIf="star === 'half'" class="star half">
+      <span class="half-star">&#9733;</span>
+      <span class="empty-star">&#9734;</span>
+    </i>
+    <i *ngIf="star === 'empty'" class="star empty">&#9734;</i>
+  </ng-container>
+</div>
